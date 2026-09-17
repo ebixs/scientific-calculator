@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ماشین‌حساب علمی</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calculator" role="application" aria-label="ماشین‌حساب علمی">
+    <div class="readout">
+      <div class="readout__history" id="history" aria-live="off"></div>
+      <div class="readout__display" id="display" aria-live="polite">0</div>
+    </div>
+
+    <div class="keys">
+      <button class="key key--func" data-action="clear">C</button>
+      <button class="key key--func" data-action="clear-entry">CE</button>
+      <button class="key key--func" data-action="backspace">⌫</button>
+      <button class="key key--op" data-action="operator" data-value="÷">÷</button>
+
+      <button class="key key--sci" data-action="sqrt">√x</button>
+      <button class="key key--sci" data-action="square">x²</button>
+      <button class="key key--sci" data-action="power">xʸ</button>
+      <button class="key key--op" data-action="operator" data-value="×">×</button>
+
+      <button class="key key--num" data-action="digit" data-value="7">7</button>
+      <button class="key key--num" data-action="digit" data-value="8">8</button>
+      <button class="key key--num" data-action="digit" data-value="9">9</button>
+      <button class="key key--op" data-action="operator" data-value="−">−</button>
+
+      <button class="key key--num" data-action="digit" data-value="4">4</button>
+      <button class="key key--num" data-action="digit" data-value="5">5</button>
+      <button class="key key--num" data-action="digit" data-value="6">6</button>
+      <button class="key key--op" data-action="operator" data-value="+">+</button>
+
+      <button class="key key--num" data-action="digit" data-value="1">1</button>
+      <button class="key key--num" data-action="digit" data-value="2">2</button>
+      <button class="key key--num" data-action="digit" data-value="3">3</button>
+      <button class="key key--sci" data-action="percent">%</button>
+
+      <button class="key key--sci" data-action="reciprocal">1/x</button>
+      <button class="key key--num" data-action="digit" data-value="0">0</button>
+      <button class="key key--num" data-action="decimal">٫</button>
+      <button class="key key--equals" data-action="equals">=</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

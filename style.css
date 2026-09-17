@@ -1,0 +1,179 @@
+/* ---------------------------------------------------------
+   Design tokens
+   Concept: a physical lab instrument, not a flat app screen.
+   Graphite body, brushed-metal edge, LCD-green readout,
+   sage operator keys, amber accent reserved for "=".
+--------------------------------------------------------- */
+:root {
+  --body-graphite: #201f1d;
+  --body-graphite-light: #2b2a27;
+  --panel-edge: #3a3834;
+
+  --lcd-bg: #c7d6b6;
+  --lcd-bg-dark: #b3c4a1;
+  --lcd-ink: #26331f;
+
+  --key-num-bg: #eeeae1;
+  --key-num-ink: #221f1a;
+  --key-num-shadow: #b8b2a3;
+
+  --key-sci-bg: #55655c;
+  --key-sci-ink: #eef1ec;
+  --key-sci-shadow: #384038;
+
+  --key-op-bg: #3a3834;
+  --key-op-ink: #eae7df;
+  --key-op-shadow: #17160f;
+
+  --accent-amber: #cf8a3f;
+  --accent-amber-shadow: #8f5c22;
+
+  --font-display: "IBM Plex Mono", "Courier New", ui-monospace, monospace;
+  --font-ui: "IBM Plex Sans", "Vazirmatn", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 20%, #2e2c28, #151412 70%);
+  font-family: var(--font-ui);
+  padding: 24px;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 360px;
+  background: linear-gradient(160deg, var(--body-graphite-light), var(--body-graphite));
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 0 0 1px var(--panel-edge);
+}
+
+.readout {
+  background: linear-gradient(180deg, var(--lcd-bg), var(--lcd-bg-dark));
+  border-radius: 10px;
+  padding: 18px 16px 14px;
+  margin-bottom: 18px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+  direction: ltr;
+  text-align: left;
+}
+
+.readout__history {
+  min-height: 18px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--lcd-ink);
+  opacity: 0.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.readout__display {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--lcd-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 4px;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.key {
+  border: none;
+  border-radius: 12px;
+  height: 56px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
+  user-select: none;
+}
+
+.key:active {
+  transform: translateY(2px);
+}
+
+.key--num {
+  background: var(--key-num-bg);
+  color: var(--key-num-ink);
+  box-shadow: 0 3px 0 var(--key-num-shadow);
+}
+.key--num:active {
+  box-shadow: 0 1px 0 var(--key-num-shadow);
+}
+
+.key--func {
+  background: var(--key-op-bg);
+  color: var(--key-op-ink);
+  box-shadow: 0 3px 0 var(--key-op-shadow);
+  font-size: 15px;
+}
+.key--func:active {
+  box-shadow: 0 1px 0 var(--key-op-shadow);
+}
+
+.key--sci {
+  background: var(--key-sci-bg);
+  color: var(--key-sci-ink);
+  box-shadow: 0 3px 0 var(--key-sci-shadow);
+  font-size: 15px;
+}
+.key--sci:active {
+  box-shadow: 0 1px 0 var(--key-sci-shadow);
+}
+
+.key--op {
+  background: var(--key-op-bg);
+  color: var(--accent-amber);
+  box-shadow: 0 3px 0 var(--key-op-shadow);
+  font-size: 20px;
+}
+.key--op:active {
+  box-shadow: 0 1px 0 var(--key-op-shadow);
+}
+
+.key--equals {
+  background: var(--accent-amber);
+  color: #241605;
+  box-shadow: 0 3px 0 var(--accent-amber-shadow);
+  font-size: 20px;
+  font-weight: 600;
+}
+.key--equals:active {
+  box-shadow: 0 1px 0 var(--accent-amber-shadow);
+}
+
+.key:focus-visible {
+  outline: 2px solid #f4e0bd;
+  outline-offset: 2px;
+}
+
+@media (max-width: 380px) {
+  .key {
+    height: 50px;
+    font-size: 16px;
+  }
+  .readout__display {
+    font-size: 32px;
+  }
+}
